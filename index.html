@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>美食</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<link rel="shortcut icon" type="image/ico" href="./images/favicon.ico" />
+		<link rel="stylesheet" type="text/css" href="./css/common.css" />
+		<link rel="stylesheet" type="text/css" href="./css/zoomify.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/showlist.css" />
+	</head>
+	<body>
+		<div class="content clearfix">
+			<nav class="nav">
+				<ul class="navList clearfix">
+					<li class="active">
+						<a href="javascript:;" ui-sref="home">常见鸡尾酒</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="bjfood">北京小吃</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="gdfood">广东小吃</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="lzfood">兰州小吃</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="henanfood">河南小吃</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="jzfood">江浙小吃</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="cfood">川菜</a>
+					</li>
+					
+					<li>
+						<a href="javascript:;" ui-sref="lfood">鲁菜</a>
+					</li>
+					
+					
+					<li>
+						<a href="javascript:;" ui-sref="xiangfood">湘菜</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="zhefood">浙菜</a>
+					</li>
+					<li>
+						<a href="javascript:;" ui-sref="yuefood">粤菜</a>
+					</li>
+					<li  class="br0">
+						<a href="javascript:;" ui-sref="sfood">苏菜</a>
+					</li>
+				</ul>
+			</nav>
+			<ul class="showList clearfix" ui-view>
+				
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery.js"></script>
+	<!--<script src="js/require.js"></script>-->
+	<script src="js/angular.min.js"></script>
+	<script src="js/angular-ui-router.js"></script>
+	<script src="js/zoomify.min.js"></script>
+	<script>
+		var app=angular.module('app',['ui.router']);
+		app.config(['$urlRouterProvider', '$stateProvider', function($urlRouterProvider, $stateProvider){
+	        $urlRouterProvider.otherwise('/home');
+	        $stateProvider.state('home', {
+	            url : '/home',
+	            templateUrl : './cocktail.html'
+	        })
+	        .state('bjfood', {
+	            url : '/bjfood',
+	            templateUrl : './bjfood.html'
+	        })
+	        .state('cfood', {
+	            url : '/cfood',
+	            templateUrl : './cfood.html'
+	        })
+	        .state('gdfood', {
+	            url : '/gdfood',
+	            templateUrl : './gdfood.html'
+	        })
+	        .state('gxfood', {
+	            url : '/gxfood',
+	            templateUrl : './gxfood.html'
+	        })
+	        .state('sfood', {
+	            url : '/sfood',
+	            templateUrl : './sfood.html'
+	        })
+	        .state('lfood', {
+	            url : '/lfood',
+	            templateUrl : './lfood.html'
+	        })
+	        .state('lzfood', {
+	            url : '/lzfood',
+	            templateUrl : './lzfood.html'
+	        })
+	        .state('henanfood', {
+	            url : '/henanfood',
+	            templateUrl : './henanfood.html'
+	        })
+	        .state('jzfood', {
+	            url : '/jzfood',
+	            templateUrl : './jzfood.html'
+	        })
+	        .state('xiangfood', {
+	            url : '/xiangfood',
+	            templateUrl : './xiangfood.html'
+	        })
+	        .state('zhefood', {
+	            url : '/zhefood',
+	            templateUrl : './zhefood.html'
+	        })
+	        .state('yuefood', {
+	            url : '/yuefood',
+	            templateUrl : './yuefood.html'
+	        })
+	        .state('gzlc', {
+	            url : '/gzlc',
+	            templateUrl : './gzlc.html'
+	        })
+	    }]);
+		app.controller('myCtr',['$scope'],function($scope){
+			
+		});
+		angular.bootstrap(document,['app']);
+		$('.navList').on('click','li',function(){
+			$('.navList li').removeClass('active');
+			$(this).addClass('active');
+		});
+		/*$('.showList li p').each(function(){
+			$('.showList li p').text($(this).siblings('img').attr('src'));
+		});*/
+	</script>
+</html>
